@@ -7,7 +7,7 @@ interface Vehicle{
     applyBrakes(decrement: number): void;
 }
 
-class Car implements Vehicle{
+export class Car implements Vehicle{
 
     name: string;
     speed: number;
@@ -24,8 +24,8 @@ class Car implements Vehicle{
     }
 }
 
-const car1: Car = new Car("Audi", 250, 6);
-console.log("car1", car1);
+// const car1: Car = new Car("Audi", 250, 6);
+// console.log("car1", car1);
 
-car1.applyBrakes(160);
-console.log("car1", car1);
+// car1.applyBrakes(160);
+// console.log("car1", car1);
