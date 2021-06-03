@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
+import { ProdFilterPipe } from './prod-filter.pipe';
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ListProductsComponent,
-    EditProductComponent
+    EditProductComponent,
+    ProdFilterPipe
   ],
   imports: [
     CommonModule, 

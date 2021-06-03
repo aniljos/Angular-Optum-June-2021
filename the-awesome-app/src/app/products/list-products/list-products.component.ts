@@ -13,6 +13,8 @@ export class ListProductsComponent implements OnInit {
 
   private url: string;
   public data: Array<Product> = new Array<Product>();
+  public selectedProduct:Product;
+  public searchKey: string;
 
   constructor(private http: HttpClient) {
     // this.http = http;
@@ -46,8 +48,29 @@ export class ListProductsComponent implements OnInit {
                   })
   }
 
-  editProduct(){
+  editProduct(item : Product){
+    this.selectedProduct = item;
+  }
 
+  editUpdate(updatedProduct: Product){
+    //alert("Product updated");
+
+    const url = this.url + "/" + updatedProduct.id;
+    this.http.put(url, updatedProduct)
+                .subscribe(() => {
+
+                  alert("Product updated");
+                  this.fetchProducts();
+
+                }, () => {
+                  alert("Failed to update");
+                });
+
+  }
+
+  editCancel(message: string){
+    alert(message);
+    this.selectedProduct = null;
   }
 
   ngOnInit(): void {
