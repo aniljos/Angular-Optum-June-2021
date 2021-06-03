@@ -1,28 +1,49 @@
 <h5>Edit Product: {{product.id}}</h5>
-<fieldset>
-    <div>
-        <p>Name</p>
+<!-- Templated Forms 
+1. Use the <form></form>
+2. input/checkbox/radi0/select/textarea field will use the ngModel -->
+<form #theFormGroup="ngForm">
+    <fieldset>
         <div>
-            <input class="form-control" [(ngModel)]="product.name"/>
+            <p>Name</p>
+            <div>
+                <input name="name" class="form-control" 
+                        [(ngModel)]="product.name" required pattern="[A-Za-z0-9\s]{3,}" 
+                                                    #nameControl="ngModel"/>
+                <div *ngIf="nameControl.hasError('required')" class="alert alert-danger">
+                    The field is required
+                </div>
+                <div *ngIf="nameControl.hasError('pattern')" class="alert alert-danger">
+                    Min lenght 3 and No special characters
+                </div>
+               
+            </div>
         </div>
-    </div>
 
-    <div>
-        <p>Price</p>
         <div>
-            <input class="form-control" [(ngModel)]="product.price"/>
+            <p>Price</p>
+            <div>
+                <input name="price" class="form-control" [(ngModel)]="product.price" required #priceControl="ngModel"/>
+                <div *ngIf="priceControl.invalid" class="alert alert-danger">
+                    The field is required.
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <p>Category</p>
         <div>
-            <input class="form-control" [(ngModel)]="product.catagory"/>
+            <p>Category</p>
+            <div>
+                <input name="category" class="form-control" [(ngModel)]="product.catagory" #categoryControl="ngModel" required/>
+                <div *ngIf="categoryControl.invalid" class="alert alert-danger">
+                    The field is required.
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <button class="btn btn-success" (click)="save()">Save</button> &nbsp;
-        <button class="btn btn-default" (click)="cancel()">Cancel</button> &nbsp;
-    </div>
-</fieldset>
+        <div>
+            <button class="btn btn-success" (click)="save()" 
+                    [disabled]="theFormGroup.invalid || theFormGroup.pristine">Save</button> &nbsp;
+            <button class="btn btn-default" (click)="cancel()">Cancel</button> &nbsp;
+        </div>
+    </fieldset>
+</form>

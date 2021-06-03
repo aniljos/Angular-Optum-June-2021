@@ -8,6 +8,7 @@ import {HelloComponent} from './hello/hello.component'
 import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsModule } from './products/products.module';
+import { SearchComponent } from './search/search.component';
 
 
 // http://localhost:4200/databinding
@@ -16,13 +17,14 @@ import { ProductsModule } from './products/products.module';
 const routes: Routes = [
   {path: "home", component: HelloComponent},
   {path: "databinding", component: DataBindingComponent},
+  {path: "search", component: SearchComponent},
   {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "**", component: NotFoundComponent}
 ]
 
 @NgModule({
   declarations: [
-    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent
+    AppComponent, HelloComponent, DataBindingComponent, NotFoundComponent, SearchComponent
   ],
   imports: [
     BrowserModule, 
