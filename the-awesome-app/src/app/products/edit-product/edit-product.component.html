@@ -1,0 +1,28 @@
+<h5>Edit Product: {{product.id}}</h5>
+<fieldset>
+    <div>
+        <p>Name</p>
+        <div>
+            <input class="form-control" [(ngModel)]="product.name"/>
+        </div>
+    </div>
+
+    <div>
+        <p>Price</p>
+        <div>
+            <input class="form-control" [(ngModel)]="product.price"/>
+        </div>
+    </div>
+
+    <div>
+        <p>Category</p>
+        <div>
+            <input class="form-control" [(ngModel)]="product.catagory"/>
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-success">Save</button> &nbsp;
+        <button class="btn btn-default">Cancel</button> &nbsp;
+    </div>
+</fieldset>
