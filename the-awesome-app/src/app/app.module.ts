@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/UserService';
 import { UserServiceImpl } from './services/UserServiceImpl';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 // http://localhost:4200/databinding
@@ -39,7 +40,9 @@ const routes: Routes = [
     ProductsModule,
     RouterModule.forRoot(routes)
   ],
+  // providers: [{provide: UserService, useClass: UserServiceImpl}, AuthGuardService],
   providers: [{provide: UserService, useClass: UserServiceImpl}],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

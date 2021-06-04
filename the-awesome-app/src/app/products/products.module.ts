@@ -6,18 +6,22 @@ import {HttpClientModule} from '@angular/common/http';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
 import { ProdFilterPipe } from './prod-filter.pipe';
+import { AuthGuardService } from '../guards/auth-guard.service';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 
 const routes: Routes = [
-  {path: "products", component: ListProductsComponent}
+  {path: "products", component: ListProductsComponent, canActivate: [AuthGuardService]},
+  {path: "products/:id", component: ProductDetailComponent,canActivate: [AuthGuardService]},
 ]
 
 @NgModule({
   declarations: [
     ListProductsComponent,
     EditProductComponent,
-    ProdFilterPipe
+    ProdFilterPipe,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule, 

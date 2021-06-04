@@ -29,7 +29,9 @@
             <td>{{item.catagory}}</td>
             <td>
                 <button class="btn btn-warning" (click)="editProduct(item)">Edit</button> &nbsp;
-                <button class="btn btn-danger" (click)="deleteProduct(item, i)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteProduct(item, i)">Delete</button> &nbsp;
+                <button class="btn btn-primary" (click)="detailProduct(item)">Details</button>
+
             </td>
         </tr>
     </tbody>

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../model/Product';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-list-products',
@@ -16,9 +18,12 @@ export class ListProductsComponent implements OnInit {
   public selectedProduct:Product;
   public searchKey: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // this.http = http;
-    this.url = "http://localhost:9000/products";
+    //this.url = "http://localhost:9000/products";
+
+    debugger;
+    this.url = environment.productsURL;
 
     this.fetchProducts();
 
@@ -71,6 +76,10 @@ export class ListProductsComponent implements OnInit {
   editCancel(message: string){
     alert(message);
     this.selectedProduct = null;
+  }
+
+  detailProduct(product: Product){
+      this.router.navigate([`/products/${product.id}`])
   }
 
   ngOnInit(): void {
