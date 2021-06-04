@@ -1,1 +1,11 @@
-<p>search works!</p>
+
+<h4>Wiki Search</h4>
+
+<div [formGroup]="searchFormGroup">
+    <input class="form-control" placeholder="Search" formControlName="search"/>
+</div>
+
+<!-- for of(ES6) -->
+<div *ngFor="let item of results">
+    <p>{{item}}</p>
+</div>
