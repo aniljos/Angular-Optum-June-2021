@@ -23,4 +23,9 @@ module.run(function($rootScope){
 module.controller("MainController", function($scope){
     console.log("In the MainController");
     $scope.message = "Hello Controller";
+    $scope.count =  10;
+
+    $scope.inc = function(){
+        $scope.count++;
+    }
 });

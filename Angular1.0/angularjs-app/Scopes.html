@@ -21,12 +21,21 @@
                 Location: <input ng-model="user.location" placeholder="Location">
             </div>
             <br/>
+
+            <div ng-controller="SecondController" style="border: 2px solid green; margin: 4px;">
+                <h4>Section #2</h4>
+    
+                <p>Clock: {{clock}}</p>
+            </div>
         </div>
 
-        <div ng-controller="SecondController" style="border: 2px solid green; margin: 4px;">
-            <h4>Section #2</h4>
+        <div ng-controller="ThirdController as ctrl" style="border: 2px solid gold; margin: 4px;">
+            <h4>Section #3</h4>
 
-            <p>Clock: {{clock}}</p>
+            <p>Count: {{ctrl.count}}</p>
+            <p>Message: {{ctrl.message}}</p>
         </div>
+
+        
 </body>
 </html>
