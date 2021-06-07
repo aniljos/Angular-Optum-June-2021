@@ -17,5 +17,9 @@
 </div>
 
 <div>
-    Message: <input [(ngModel)]="message"/> {{message}}
+    Message: <input [(ngModel)]="message"/> 
+    
+    <p [hidden]="!message">
+        Result : {{message1}}
+    </p>
 </div>

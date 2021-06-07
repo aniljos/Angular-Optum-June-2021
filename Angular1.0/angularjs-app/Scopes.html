@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopes</title>
+    <script src="lib/angular.js"></script>
+    <script src="scripts/scopes.js"></script>
+</head>
+<body ng-app="app" style="border: 2px solid blue; margin: 4px;">
+        <h2>Scopes</h2>
+
+        <p>Message: {{message}}</p>
+
+        <div ng-controller="FirstController" style="border: 2px solid red; margin: 4px;">
+            <h4>Section #1</h4>
+            <p>User: {{user.name + " " + user.location}}</p>
+            <div>
+                Name: <input ng-model="user.name" placeholder="Name"> &nbsp;
+                Location: <input ng-model="user.location" placeholder="Location">
+            </div>
+            <br/>
+        </div>
+
+        <div ng-controller="SecondController" style="border: 2px solid green; margin: 4px;">
+            <h4>Section #2</h4>
+
+            <p>Clock: {{clock}}</p>
+        </div>
+</body>
+</html>
